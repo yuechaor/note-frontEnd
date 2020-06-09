@@ -1,0 +1,17 @@
+<div class="container-fluid bg-white">
+  <app-navbar
+    (showNoteModalEvent)="onShowNoteModal()"
+    (signOutUserEvent)="onSignOut()"
+  ></app-navbar>
+</div>
+<div class="container-fluid">
+  <app-notes></app-notes>
+  <!-- <notes (showNoteModalEvent)="onShowNoteModal($event)"></notes>
+  <note
+    class="page-modal"
+    *ngIf="showNoteModal"
+    [note]="newNote"
+    (closeModalEvent)="onCloseNoteModal()"
+  ></note> -->
+  <div class="footer"></div>
+</div>

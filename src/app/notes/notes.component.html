@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="inner-wrap">
+    <div *ngif="isLoading">
+      <div class="spinner-container">
+        <app-spinner loadingText="loading....Please wait"></app-spinner>
+      </div>
+    </div>
+    <div class="alert alert-warning" *ngif="noNotesFound">
+      <div class="message-wrap">
+        <span>Hey there! welcome to the serverless notes app.</span>
+        <button class="btn btn-success auto_left_margin">
+          Click to create your first note
+        </button>
+      </div>
+    </div>
+    <div class="alert alert-{{ alert.type }}" role="alert">
+      {{ alert.message }}
+    </div>
+    <div class="list-group-container">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let note of userNotes">
+          <app-note-snapshot
+            class="note-snapshot"
+            [note]="note"
+          ></app-note-snapshot>
+        </li>
+      </ul>
+      <div class="list-loading" *ngif="isListLoading">
+        <div class="spinner-container">
+          <app-spinner></app-spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <app-note> </app-note>
+</div>
